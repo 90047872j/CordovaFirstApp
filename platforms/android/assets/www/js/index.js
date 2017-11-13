@@ -27,8 +27,13 @@ var app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
-        this.receivedEvent('deviceready');
-        document.getElementById("nuestro_texto").innerHTML = "Hola en Noviembre";
+        document.getElementById("b_saludar").addEventListener("touchstart",saludar);
+
+
+
+
+
+        
     },
 
     // Update DOM on a Received Event
@@ -36,26 +41,21 @@ var app = {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
-
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-
-        document.getElementById("showHelloWorld").addEventListener("touchstart",showHelloWorld);
-
-
     }
-
-
-
-
-
 };
 
-    function showHelloWorld (){
-        alert ("Hello World");
-    }
+function saludar (){
+
+var textNom = document.getElementById("inputNom").value;
+var textCognom = document.getElementById("inputCognom").value;
+var finalText = document.getElementById("nuestro_texto").innerHTML + " " + textNom + " " + textCognom;
+document.getElementById("nuestro_texto").innerHTML = finalText;
+alert (finalText);
+}
 
 
 app.initialize();
