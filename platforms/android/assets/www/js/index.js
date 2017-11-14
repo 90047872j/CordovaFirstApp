@@ -28,12 +28,6 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         document.getElementById("b_saludar").addEventListener("touchstart",saludar);
-
-
-
-
-
-        
     },
 
     // Update DOM on a Received Event
@@ -43,19 +37,30 @@ var app = {
         var receivedElement = parentElement.querySelector('.received');
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-
         console.log('Received Event: ' + id);
     }
 };
 
 function saludar (){
-
+var otherText;
 var textNom = document.getElementById("inputNom").value;
 var textCognom = document.getElementById("inputCognom").value;
 var finalText = document.getElementById("nuestro_texto").innerHTML + " " + textNom + " " + textCognom;
-document.getElementById("nuestro_texto").innerHTML = finalText;
-alert (finalText);
+var rates = document.querySelector('input[name="gender"]:checked').value;
+var x = document.getElementById("myCheck"); //afagar objecte
+if (x.checked) {
+    otherText = finalText + " ets major d'edat i ets un/a " + rates;
+} else {
+     otherText = finalText + " no ets major d'edati ets un/a " + rates;
 }
 
+
+document.getElementById("nuestro_texto").innerHTML = otherText;
+
+document.getElementById('myImage').src = 'https://www.mundoperros.es/wp-content/uploads/2016/05/perro_comiendo.jpg';
+
+
+alert (otherText);
+}
 
 app.initialize();

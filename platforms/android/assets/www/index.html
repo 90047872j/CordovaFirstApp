@@ -28,7 +28,16 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+
+
+
+
+
+<meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; media-src *; img-src * filesystem: data:">
+
+
+
+
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -37,28 +46,27 @@
     </head>
     <body>
         <div class="app">
-
-
-   
-        <h2>Introdueix el teu i cognom<h2>
+        <p id="main_text">Intodueix el teu nom i cognom</p>    
         <p><input id="inputNom"></input></p>
-        <input id="inputCognom"></input>  
-
-
-        
-        <button id ="b_saludar">saludar</button>
+        <input id="inputCognom"></input><br/>  
+        <p><button id ="b_saludar">saludar</button></p>
+        <input id="myCheck" type="checkbox" name="vehicle" value="Bike">Major d'edat<br/>
+        <p><input type="tel" name="usrtel" placeholder="telefon"></p>
+        <p><input type="password" name="psw" placeholder="password"></p>
+        <p id="naixement">Selecciona data de naixement</p> 
+        <p><input type="date" name="bday"></p>
+        Select your favorite color:
+        <p><input type="color" name="favcolor" value="#ff0000"></p>
+        Select your gender:
+        <div id="gender">
+        <input type="radio" id="r1" name="gender" value="home"> Home
+        <input type="radio" id="r2" name="gender" value="dona"> Dona
+        </div>
         <p id="nuestro_texto">Hola</p>
-
-
+        <img id="myImage" src="https://www.mundoperros.es/wp-content/uploads/2016/05/perro_comiendo.jpg" width="200" height="200">
 
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        
-        
- 
-
     </body>
-
-
 </html>
